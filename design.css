@@ -22,6 +22,7 @@
 .comic-gallery{display:grid;grid-template-columns:1fr 1fr;gap:25px}.comic-panel{min-width:0;padding:10px;border:1px solid var(--line);background:white;border-radius:14px}.comic-panel a{display:block}.comic-panel img{width:100%;height:auto;border-radius:7px}.comic-panel figcaption{padding:18px 10px 10px;display:flex;gap:14px;align-items:center}.frame-number{font:30px/1 var(--serif);color:var(--orange)}.comic-panel h2{font-size:18px}.comic-panel figcaption p{color:var(--muted);font-size:13px}.comic-panel figcaption>span:last-child{margin-left:auto}.comic-description{display:grid;grid-template-columns:1.4fr 1fr;gap:35px;align-items:center;padding:30px 35px;background:var(--mint);border-radius:16px;margin-top:25px}.comic-description h2{font-size:23px;margin-block:5px 12px}.comic-description p{color:var(--muted)}.comic-actions{display:flex;flex-direction:column;align-items:center;gap:13px}
 
 .work-image img{position:absolute;inset:0}
+.work-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin:14px 8px 0}.work-links .external-work{min-height:44px;margin:0;gap:8px;white-space:nowrap}
 
 /* Creator background stays separate from the character artwork. */
 .creator-profile{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:60px;margin-top:32px;padding:38px 40px;background:#fffefb;border:1px solid var(--line);border-radius:24px}
