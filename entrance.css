@@ -40,9 +40,12 @@
 .picture-link:hover,.picture-link:focus-visible{transform:translateY(-3px);border-color:#e7a17d;box-shadow:0 6px 15px #81572e13;background:#fff9eb}
 .picture-link.is-previewed{border-color:#d87852;background:#fff9eb}
 .picture-thumb{display:block;position:relative;width:65px;height:86px;flex:0 0 65px;background:#eee9dc;border-radius:6px;overflow:hidden}
-.picture-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .36s}
-.picture-alternate{opacity:0}
-.picture-link:hover .picture-alternate,.picture-link:focus-visible .picture-alternate{opacity:1}
+.picture-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;visibility:hidden;transition:opacity .24s}
+.picture-thumb .picture-primary{opacity:1;visibility:visible}
+/* Hide the outgoing artwork, including the space around a different aspect ratio. */
+.picture-link:focus-visible .picture-primary{opacity:0;visibility:hidden}
+.picture-link:focus-visible .picture-alternate{opacity:1;visibility:visible}
+@media(hover:hover){.picture-link:hover .picture-primary{opacity:0;visibility:hidden}.picture-link:hover .picture-alternate{opacity:1;visibility:visible}}
 .picture-copy{min-width:0;display:block}
 .picture-kicker{display:block;font:8px/1.7 Arial,sans-serif;letter-spacing:.045em;color:#617568;margin-bottom:4px}
 .picture-copy h2{font-size:14px;font-weight:800;line-height:1.5;letter-spacing:-.025em}
@@ -60,6 +63,6 @@
 @media(max-width:1200px){.entrance-main{width:calc(100% - 48px)}.welcome{grid-template-columns:minmax(280px,.7fr) minmax(550px,1.2fr);gap:24px}.welcome-panel{padding:22px}.picture-link{gap:8px}.picture-thumb{width:54px;flex-basis:54px;height:76px}.picture-copy h2{font-size:13px}.hover-hint{display:none}}
 @media(max-width:1000px){.welcome{grid-template-columns:minmax(220px,.65fr) minmax(420px,1.2fr);gap:20px}.welcome-panel{padding:20px}.picture-map{grid-template-columns:1fr}.picture-thumb{width:58px;flex-basis:58px;height:72px}.picture-copy h2{font-size:15px}.picture-kicker{font-size:9px}.picture-description{font-size:12px}.art-column{top:106px}.welcome-lead>span{display:block}.welcome-proof{gap:8px;flex-direction:column}}
 @media(max-width:740px){.entrance-main{width:calc(100% - 32px);padding-top:18px}.welcome{display:flex;flex-direction:column;gap:24px}.art-column{position:relative;top:auto;max-width:365px;width:calc(100% - 20px)}.art-heading{font-size:10px}.scene-window{aspect-ratio:3/4}.scene-selector{margin-top:16px}.scene-postcard figcaption{font-size:12px;min-height:48px}.welcome-panel{width:100%;padding:25px 18px 20px}.welcome-heading h1{font-size:53px}.welcome-lead{font-size:20px}.welcome-lead>span{display:inline}.welcome-description{font-size:13px}.picture-map{grid-template-columns:1fr}.picture-thumb{width:73px;flex-basis:73px;height:90px}.picture-link{gap:16px}.picture-copy h2{font-size:16px}.picture-kicker{font-size:9px}.picture-description{font-size:12px}.map-label{margin-top:24px}.map-label h2>span{font-size:12px}.welcome-proof{flex-direction:row;gap:8px 15px}.page-entrance .site-footer{width:calc(100% - 32px);padding:22px 18px}.art-heading:before{content:"ようこそ、moframeへ。";font:700 15px/1.7 var(--sans);letter-spacing:0}.art-heading>span:first-child{display:none}}
-@media(hover:none){.hover-hint{display:none}.picture-link:hover{transform:none}.picture-link:hover .picture-alternate{opacity:0}}
+@media(hover:none){.hover-hint{display:none}.picture-link:hover{transform:none}}
 @media(max-width:740px){.mobile-map-jump{display:block;font:700 11px/1.7 var(--sans);letter-spacing:0;border-bottom:1px solid currentColor}.art-heading>span:last-child{display:none}.welcome-heading h1{font-size:clamp(32px,11vw,45px)}.welcome-heading h1>small{font-size:11px;white-space:nowrap;margin-left:12px;flex-shrink:0}.page-entrance .site-footer{width:100%}}
 @media(prefers-reduced-motion:reduce){.scene-image,.scene-postcard,.picture-link,.picture-thumb img,.picture-arrow,.scene-selector button{transition:none}}
