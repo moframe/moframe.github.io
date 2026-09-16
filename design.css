@@ -63,3 +63,4 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .shop-art{padding:8px;background:white;border:1px solid var(--line);border-radius:18px}.shop-art a{display:block}.shop-art img{width:100%;height:auto;border-radius:11px}.shop-art a>span{display:flex;justify-content:center;gap:14px;align-items:center;min-height:44px;font-size:13px;margin-top:4px}.shop-art a:hover>span{color:var(--orange)}.publication-pending{padding:42px;border:1px solid var(--line);border-radius:20px;background:var(--mint)}.publication-pending h2{margin:12px 0}.publication-pending .text-link{margin-top:20px}
+.page-intro.works-follow-note{max-width:none}
