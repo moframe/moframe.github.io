@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://moframe.github.io/</loc></url>
+  <url><loc>https://moframe.github.io/about-en.html</loc></url>
   <url><loc>https://moframe.github.io/about.html</loc></url>
+  <url><loc>https://moframe.github.io/award-en.html</loc></url>
   <url><loc>https://moframe.github.io/award.html</loc></url>
+  <url><loc>https://moframe.github.io/characters-en.html</loc></url>
   <url><loc>https://moframe.github.io/characters.html</loc></url>
+  <url><loc>https://moframe.github.io/client-work-en.html</loc></url>
   <url><loc>https://moframe.github.io/client-work.html</loc></url>
+  <url><loc>https://moframe.github.io/comic-en.html</loc></url>
   <url><loc>https://moframe.github.io/comic.html</loc></url>
+  <url><loc>https://moframe.github.io/contact-en.html</loc></url>
   <url><loc>https://moframe.github.io/contact.html</loc></url>
+  <url><loc>https://moframe.github.io/index-en.html</loc></url>
+  <url><loc>https://moframe.github.io/mv-en.html</loc></url>
   <url><loc>https://moframe.github.io/mv.html</loc></url>
+  <url><loc>https://moframe.github.io/services-en.html</loc></url>
   <url><loc>https://moframe.github.io/services.html</loc></url>
+  <url><loc>https://moframe.github.io/shop-en.html</loc></url>
   <url><loc>https://moframe.github.io/shop.html</loc></url>
+  <url><loc>https://moframe.github.io/works-en.html</loc></url>
   <url><loc>https://moframe.github.io/works.html</loc></url>
 </urlset>

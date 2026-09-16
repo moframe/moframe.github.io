@@ -1,0 +1,57 @@
+/* Language links stay visible outside the collapsible navigation. */
+.site-header{gap:20px}
+.site-header>.brand{order:0}
+.site-header>.main-nav{order:1;margin-left:auto}
+.language-switch{order:2;display:flex;align-items:center;gap:3px;flex-shrink:0;font:13px/1.4 Arial,var(--sans);white-space:nowrap}
+.language-switch a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 9px;border-radius:8px}
+.language-switch a[aria-current]{background:var(--ink);color:white;font-weight:700}
+.language-switch a:hover{box-shadow:inset 0 0 0 1px var(--orange)}
+.language-switch>span{color:var(--muted)}
+.site-header>.menu-toggle{order:3}
+html[lang=en] body{font-family:Arial,"Yu Gothic",sans-serif;line-height:1.75}
+html[lang=en] h1,html[lang=en] h2,html[lang=en] h3{line-height:1.3;letter-spacing:-.02em;text-wrap:balance}
+html[lang=en] .main-nav{gap:20px}
+html[lang=en] .welcome-heading h1>small{display:none}
+html[lang=en] .welcome-lead>span:before{content:" "}
+html[lang=en] .welcome-proof{gap:8px 16px}
+html[lang=en] .welcome-proof strong{margin-inline:3px}
+html[lang=en] .map-label{flex-wrap:wrap}
+html[lang=en] .map-label h2{white-space:normal}
+html[lang=en] .picture-copy h2{line-height:1.35;text-wrap:pretty}
+html[lang=en] .picture-description{line-height:1.45}
+html[lang=en] .image-unavailable:before{content:"Watch the film on YouTube"}
+html[lang=en] .contact-login-note{max-width:480px;margin:18px auto 0;line-height:1.7}
+html[lang=en] .offer-shortcuts a{white-space:normal}
+html[lang=en] .creator-background dt,html[lang=en] .creator-background dd{overflow-wrap:anywhere}
+html[lang=en] .award-card>*{min-width:0}
+@media(max-width:740px){html[lang=en] .art-heading:before{content:"Welcome to moframe."}}
+@media(max-width:1320px){
+ .site-header{height:80px;padding-inline:24px;gap:18px}
+ .language-switch{margin-left:auto}
+ .menu-toggle{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;background:transparent}
+ .menu-toggle span{font-size:24px;line-height:1}
+ .main-nav{display:none;position:absolute;top:79px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 14px 20px #2447460a;padding:20px 28px;font-size:15px}
+ .main-nav.is-open{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+ .main-nav a{padding:10px 13px}
+ .main-nav a[aria-current]{text-decoration:none;background:var(--mint);border-radius:6px}
+ .main-nav .nav-contact{margin-top:8px}
+}
+@media(max-width:650px){
+ .site-header{height:auto;min-height:104px;padding:12px 20px;display:grid;grid-template-columns:1fr auto;gap:7px 12px}
+ .site-header>.brand{grid-column:1;grid-row:1}
+ .site-header>.menu-toggle{grid-column:2;grid-row:1;justify-self:end}
+ .site-header>.language-switch{grid-column:1/-1;grid-row:2;justify-self:end;margin-left:0;font-size:12px}
+ .language-switch a{min-height:36px;padding:7px 12px}
+ .main-nav{top:100%}
+ html{scroll-padding-top:135px}
+ html[lang=en] .contact-inner h1{font-size:32px}
+ html[lang=en] .art-heading{flex-wrap:wrap;gap:10px}
+ html[lang=en] .art-heading:before{font-size:14px}
+ html[lang=en] .welcome-lead{font-size:22px}
+ html[lang=en] .offer-shortcuts{gap:8px}
+ html[lang=en] .award-card{grid-template-columns:minmax(0,1fr)}
+ html[lang=en] .award-top{flex-wrap:wrap;gap:10px}
+ html[lang=en] .award-top time{margin-left:0;flex-basis:100%}
+ html[lang=en] .award-copy h2{font-size:clamp(44px,12vw,65px)}
+ html[lang=en] .award-copy h2>span{display:block;font-size:23px;margin-left:0}
+}

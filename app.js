@@ -1,9 +1,10 @@
 (() => {
   'use strict';
+  const english = document.documentElement.lang === 'en';
   // Keep bookmarks from the first single-page prototype useful after the split.
   const legacyPages = {'sitemap':'sitemap','works':'works','mv-work':'mv','comic-work':'comic','about':'about','characters':'characters','achievements':'client-work','client-work':'client-work','award':'award','shop':'shop','services':'services','contact':'contact'};
   if (document.body.classList.contains('page-index') && Object.hasOwn(legacyPages, location.hash.slice(1))) {
-    location.replace(legacyPages[location.hash.slice(1)] + '.html');
+    location.replace(legacyPages[location.hash.slice(1)] + (english ? '-en.html' : '.html'));
     return;
   }
   const menuButton = document.querySelector('.menu-toggle');
@@ -84,7 +85,7 @@
     button.addEventListener('click', () => {
       const id = button.dataset.video;
       if (!allowedVideos.has(id)) return;
-      const title = button.dataset.title || 'moframeの作品';
+      const title = button.dataset.title || (english ? 'A film by moframe' : 'moframeの作品');
       videoTitle.textContent = title;
       videoFallback.href = `https://www.youtube.com/watch?v=${id}`;
       const frame = document.createElement('iframe');
