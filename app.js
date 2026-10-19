@@ -80,13 +80,14 @@
   const videoContainer = document.querySelector('#video-container');
   const videoTitle = document.querySelector('#video-title');
   const videoFallback = document.querySelector('#video-fallback');
-  const allowedVideos = new Set(['1W9pCWQxaTg','UV4rZNda6uQ','fNoT0sCefBo','bVUr9U6f00E','hi4_zR1aNRw','gnrriyOY520','paLESgaDyGo','atXCVoSshMk']);
+  const allowedVideos = new Set(['1W9pCWQxaTg','UV4rZNda6uQ','fNoT0sCefBo','bVUr9U6f00E','hi4_zR1aNRw','gnrriyOY520','paLESgaDyGo','atXCVoSshMk','XkUuSYKb_Zg','7NpKSYn1-Pk','uMq8qweyjNg','EDPdqPUGPCw','UwWbEDq47_s']);
   document.querySelectorAll('[data-video]').forEach(button => {
     button.addEventListener('click', () => {
       const id = button.dataset.video;
       if (!allowedVideos.has(id)) return;
       const title = button.dataset.title || (english ? 'A film by moframe' : 'moframeの作品');
       videoTitle.textContent = title;
+      videoDialog.classList.toggle('video-portrait', button.dataset.portrait === 'true');
       videoFallback.href = `https://www.youtube.com/watch?v=${id}`;
       const frame = document.createElement('iframe');
       frame.title = title;
