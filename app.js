@@ -80,7 +80,7 @@
   const videoContainer = document.querySelector('#video-container');
   const videoTitle = document.querySelector('#video-title');
   const videoFallback = document.querySelector('#video-fallback');
-  const allowedVideos = new Set(['1W9pCWQxaTg','UV4rZNda6uQ','fNoT0sCefBo','bVUr9U6f00E','hi4_zR1aNRw','gnrriyOY520','paLESgaDyGo','atXCVoSshMk','XkUuSYKb_Zg','7NpKSYn1-Pk']);
+  const allowedVideos = new Set(['1W9pCWQxaTg','UV4rZNda6uQ','fNoT0sCefBo','bVUr9U6f00E','hi4_zR1aNRw','gnrriyOY520','paLESgaDyGo','atXCVoSshMk','XkUuSYKb_Zg','7NpKSYn1-Pk','x2qC8mDkT-E']);
   document.querySelectorAll('[data-video]').forEach(button => {
     button.addEventListener('click', () => {
       const id = button.dataset.video;
