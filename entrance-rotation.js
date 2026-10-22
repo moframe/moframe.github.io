@@ -5,6 +5,8 @@
   const english = document.documentElement.lang === 'en';
   // Only decorative navigation artwork rotates. Project-specific cards stay fixed.
   const pool = [
+    ['assets/wingsuit-cabin.png', '赤い照明の機内で、飛び立つ準備をするミケちゃん、ボーダー君、タイハク', 'Mike, Border and Taihaku getting ready to jump in a red-lit aircraft cabin'],
+    ['assets/wingsuit-autumn.png', 'ウイングスーツで奥日光の紅葉を楽しむミケちゃん、ボーダー君、タイハク', 'Mike, Border and Taihaku enjoying the autumn colors of Oku-Nikko on a wingsuit flight'],
     ['assets/water-fight.png', '水鉄砲を持つミケちゃんとボーダー君', 'Mike and Border with a water blaster'],
     ['assets/digidigi-dance.png', 'スーツ姿で踊るミケちゃんとボーダー君', 'Mike and Border dancing in suits'],
     ['assets/roadrunner.png', 'ロードランナーを追うミケちゃん、ボーダー君、タイハク', 'Mike, Border and Taihaku chasing a roadrunner'],
