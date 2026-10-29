@@ -61,7 +61,7 @@
       ['assets/portfolio-sword-dance-painted.png', '刀で描く、私の世界。', 'Painting My World with a Blade'],
       ['assets/portfolio-psychokinesis.png', 'サイコキネシス・アクション', 'Psychokinesis Action'],
       ['assets/portfolio-parkour-hero.png', 'プレビズからつくる、迫力のパルクール。', 'Parkour Built from Previs'],
-      ['assets/portfolio-goldfish.webp', '金魚 — 一枚の絵から、動き出す。', 'Goldfish — A Single Image Comes to Life'],
+      ['assets/portfolio-goldfish-wide.png', '金魚 — 一枚の絵から、動き出す。', 'Goldfish — A Single Image Comes to Life'],
       ['assets/portfolio-moon-rabbit.png', '月夜に描く、和の幻想。', 'A Moonlit Japanese Fantasy']
     ];
     const animationKey = 'moframe-animation-art-v1';
