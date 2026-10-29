@@ -33,7 +33,7 @@
       let video = videos.get(card);
       if (!video) {
         const source = card.dataset.preview;
-        if (!/^assets\/preview-[a-z0-9-]+\.mp4$/.test(source)) { stop(); return; }
+        if (!/^assets\/preview-[a-z0-9-]+\.mp4(?:\?v=2)?$/.test(source)) { stop(); return; }
         video = document.createElement('video');
         video.className = 'hover-preview';
         video.muted = true;
@@ -68,7 +68,7 @@
     }
   });
   cards.forEach(card => {
-    card.dataset.previewLabel = english ? '10s silent preview' : '10秒・無音プレビュー';
+    card.dataset.previewLabel = english ? '5s silent preview' : '5秒・無音プレビュー';
     card.addEventListener('pointerenter', event => {
       if (event.pointerType === 'mouse' && pointer.matches) start(card);
     });

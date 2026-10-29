@@ -15,3 +15,5 @@
 @media (prefers-reduced-motion:reduce) {
   .hover-preview, .preview-ready::after { display:none; }
 }
+
+.award-video.preview-ready::after { bottom:48px; }

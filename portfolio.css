@@ -1,6 +1,6 @@
 .portfolio-collections{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .collection-card{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.collection-card>img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:var(--mint)}
+.collection-preview{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:var(--mint)}
 .collection-copy{display:flex;flex-direction:column;flex:1;padding:24px}
 .collection-copy .eyebrow{font-size:10px}.collection-copy h2{font-size:23px;line-height:1.5;margin:6px 0 12px}
 .collection-copy>p:not(.eyebrow){font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:24px}
@@ -15,5 +15,7 @@
 .portfolio-client{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 24px;margin:32px 0 48px;font-size:14px}
 .portfolio-consult{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:32px;border-radius:18px;background:var(--mint)}
 .portfolio-consult h2{font-size:22px;line-height:1.6}.portfolio-consult p{font-size:14px;color:var(--muted);margin-top:8px}.portfolio-consult .button{flex-shrink:0}
-@media(max-width:1000px){.portfolio-collections{grid-template-columns:1fr}.collection-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}.collection-card>img{height:100%;object-fit:contain}.portfolio-consult{align-items:flex-start;flex-direction:column}}
+@media(max-width:1000px){.portfolio-collections{grid-template-columns:1fr}.collection-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}.collection-preview{height:100%;object-fit:contain}.portfolio-consult{align-items:flex-start;flex-direction:column}}
 @media(max-width:600px){.collection-card{display:flex}.collection-copy{padding:22px}.portfolio-consult{padding:24px}.portfolio-consult h2{font-size:20px}.portfolio-client{justify-content:flex-start}}
+
+.collection-preview{position:relative;overflow:hidden}.collection-preview>img{display:block;width:100%;height:100%;object-fit:contain}.collection-preview:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}

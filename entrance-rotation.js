@@ -58,7 +58,7 @@
     const animationPool = [
       ['assets/portfolio-cyber-selected.png', 'サイバー魔導士 — 彼女が企むこと。', 'Cyber Mage — What Is She Planning?'],
       ['assets/portfolio-samurai.png', '侍の戦い — 一対一の剣戟', 'Samurai Duel — One-on-One Sword Action'],
-      ['assets/portfolio-sword-dance-painted.png?v=2', '刀で描く、私の世界。', 'Painting My World with a Blade'],
+      ['assets/portfolio-sword-dance-painted.png?v=3', '刀で描く、私の世界。', 'Painting My World with a Blade'],
       ['assets/portfolio-psychokinesis.png', 'サイコキネシス・アクション', 'Psychokinesis Action'],
       ['assets/portfolio-parkour-hero.png', 'プレビズからつくる、迫力のパルクール。', 'Parkour Built from Previs'],
       ['assets/portfolio-goldfish-wide.png', '金魚 — 一枚の絵から、動き出す。', 'Goldfish — A Single Image Comes to Life'],
