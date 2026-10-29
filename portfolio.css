@@ -5,8 +5,13 @@
 .collection-copy .eyebrow{font-size:10px}.collection-copy h2{font-size:23px;line-height:1.5;margin:6px 0 12px}
 .collection-copy>p:not(.eyebrow){font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:24px}
 .collection-copy nav{display:flex;flex-direction:column;gap:8px;margin-top:auto}
-.collection-copy nav a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;font-weight:700}
-.collection-copy nav a:hover{color:var(--orange)}.collection-copy nav span{color:var(--orange)}
+.collection-copy nav a{display:flex;align-items:center;gap:12px;min-height:84px;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:14px;font-weight:700;transition:background .2s,border-color .2s}
+.collection-link-thumb{display:block;width:84px;height:64px;flex:0 0 84px;object-fit:contain;background:var(--mint);border-radius:6px}
+.collection-link-label{flex:1;min-width:0;line-height:1.6;overflow-wrap:anywhere}
+.collection-link-arrow{color:var(--orange);flex-shrink:0}
+.collection-copy nav a:hover,.collection-copy nav a:focus-visible{color:var(--orange);border-color:var(--orange);background:#fff9eb}
+.collection-copy nav a:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.collection-copy nav a{transition:none}}
 .portfolio-client{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 24px;margin:32px 0 48px;font-size:14px}
 .portfolio-consult{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:32px;border-radius:18px;background:var(--mint)}
 .portfolio-consult h2{font-size:22px;line-height:1.6}.portfolio-consult p{font-size:14px;color:var(--muted);margin-top:8px}.portfolio-consult .button{flex-shrink:0}
