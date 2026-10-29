@@ -21,7 +21,7 @@
     ['assets/moon-viewing.png', '浴衣姿で月見団子を食べる3人', 'The three friends enjoying moon-viewing dumplings in yukata'],
     ['assets/cream-puff-baking.png', '焼き上がるシュークリームを楽しみに待つミケちゃん', 'Mike eagerly watching cream puffs bake']
   ];
-  const cards = ['works', 'characters', 'about', 'services', 'contact']
+  const cards = ['about', 'services', 'contact']
     .map(name => document.querySelector(`.picture-${name}`));
   const buttons = [...document.querySelectorAll('.scene-selector button')];
   if (cards.some(card => !card) || cards.length * 2 + buttons.length > pool.length) return;
@@ -53,7 +53,7 @@
     element.dataset.sceneAlt = describe(item);
     element.dataset.sceneCaption = describe(item);
   };
-  const animationCard = document.querySelector('.picture-animation');
+  const animationCard = document.querySelector('.picture-animation, .picture-portfolio');
   if (animationCard) {
     const animationPool = [
       ['assets/portfolio-cyber-selected.png', 'サイバー魔導士 — 彼女が企むこと。', 'Cyber Mage — What Is She Planning?'],
