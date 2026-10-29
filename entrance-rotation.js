@@ -1,7 +1,6 @@
 (() => {
   'use strict';
   const stage = document.querySelector('[data-scene-stage]');
-  if (!stage) return;
   const english = document.documentElement.lang === 'en';
   // Category artwork rotates; individual project thumbnails stay fixed.
   const pool = [
@@ -95,6 +94,7 @@
     button.setAttribute('aria-pressed', String(i === 0));
   });
   const initial = order[cards.length * 2];
+  if (!stage) return; // Keep card rotation even when the entrance shows a film.
   const main = stage.querySelector('.scene-image.is-visible');
   main.src = initial[0];
   main.alt = describe(initial);

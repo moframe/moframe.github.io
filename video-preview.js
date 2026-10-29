@@ -12,6 +12,36 @@
   const visible = new Set();
   const mobileCard = card => !card.classList.contains('collection-preview');
   const enabled = () => !reducedMotion.matches && !connection?.saveData;
+  const frame = card => card.querySelector('.preview-frame') || card;
+  const owners = new Map(cards.map(card => [frame(card), card]));
+  const prepare = (card, mobile) => {
+    const source = mobile ? card.dataset.mobilePreview : card.dataset.preview;
+    if (!source || !/^assets\/preview-[a-z0-9-]+\.mp4(?:\?v=2)?$/.test(source)) return null;
+    let video = videos.get(card);
+    if (!video) {
+      video = document.createElement('video');
+      video.className = 'hover-preview';
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.setAttribute('aria-hidden', 'true');
+      video.disablePictureInPicture = true;
+      frame(card).append(video);
+      videos.set(card, video);
+      video.addEventListener('ended', () => { if (active === card) stop(); });
+      video.addEventListener('error', () => {
+        if (active === card) stop();
+        card.classList.remove('preview-ready');
+      });
+    }
+    if (video.dataset.source !== source) {
+      video.dataset.source = source;
+      video.preload = mobile ? 'auto' : 'none';
+      video.src = source;
+      if (mobile) video.load();
+    }
+    return video;
+  };
   const stop = () => {
     revision++;
     clearTimeout(timer);
@@ -38,27 +68,8 @@
           (mobile && (!touch.matches || !visible.has(card)))) { stop(); return; }
       pending = null;
       active = card;
-      let video = videos.get(card);
-      if (!video) {
-        const source = card.dataset.preview;
-        if (!/^assets\/preview-[a-z0-9-]+\.mp4(?:\?v=2)?$/.test(source)) { stop(); return; }
-        video = document.createElement('video');
-        video.className = 'hover-preview';
-        video.muted = true;
-        video.defaultMuted = true;
-        video.playsInline = true;
-        video.preload = 'none';
-        video.setAttribute('aria-hidden', 'true');
-        video.disablePictureInPicture = true;
-        video.src = source;
-        (card.querySelector('.preview-frame') || card).append(video);
-        videos.set(card, video);
-        video.addEventListener('ended', () => { if (active === card) stop(); });
-        video.addEventListener('error', () => {
-          if (active === card) stop();
-          card.classList.remove('preview-ready');
-        });
-      }
+      const video = prepare(card, mobile);
+      if (!video) { stop(); return; }
       try {
         // Attempt at most once per page visit on touch, including autoplay denial.
         if (mobile) seen.add(card);
@@ -71,7 +82,7 @@
           }, 1000);
         } else if (active !== card) video.pause();
       } catch { if (request === revision) stop(); }
-    }, 180);
+    }, mobile ? 0 : 180);
   };
   const updatePreference = () => {
     stop();
@@ -83,13 +94,22 @@
       card.classList.toggle('preview-ready', enabled() && (mobile ? mobileCard(card) : pointer.matches));
     });
   };
-  // The central 60% of the screen triggers individual works only. Category reels
-  // stay still on touch. No autoplay is requested before a work enters this area.
+  // Load only nearby, one-second work clips before they enter the screen.
+  const preloadObserver = new IntersectionObserver(entries => {
+    if (!touch.matches || !enabled() || document.hidden) return;
+    for (const entry of entries) {
+      const card = owners.get(entry.target);
+      if (entry.isIntersecting && !seen.has(card)) prepare(card, true);
+    }
+  }, {rootMargin:'240px 0px', threshold:0});
+  // Observe the image frame, excluding captions. Half visible anywhere in the
+  // viewport is enough; category montage cards remain still on touch.
   const mobileObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
-      const inView = entry.isIntersecting && entry.intersectionRatio >= 0.45;
-      if (inView) visible.add(entry.target); else visible.delete(entry.target);
-      if (touch.matches && !inView && (active === entry.target || pending === entry.target)) stop();
+      const card = owners.get(entry.target);
+      const inView = entry.isIntersecting && entry.intersectionRatio >= 0.5;
+      if (inView) visible.add(card); else visible.delete(card);
+      if (touch.matches && !inView && (active === card || pending === card)) stop();
     }
     if (!touch.matches || active || pending || !enabled()) return;
     const candidate = [...visible].filter(card => !seen.has(card)).sort((a,b) => {
@@ -97,7 +117,7 @@
       return center(a)-center(b);
     })[0];
     if (candidate) start(candidate, true);
-  }, {rootMargin:'-20% 0px -20% 0px', threshold:[0,0.45,0.75]});
+  }, {rootMargin:'0px', threshold:[0,0.5,1]});
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting && (active === entry.target || pending === entry.target)) stop();
@@ -116,7 +136,10 @@
     // Original links/buttons still open the full film on click or tap.
     card.addEventListener('click', stop, {capture: true});
     observer.observe(card);
-    if (mobileCard(card)) mobileObserver.observe(card);
+    if (mobileCard(card)) {
+      mobileObserver.observe(frame(card));
+      preloadObserver.observe(frame(card));
+    }
   });
   document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
   document.addEventListener('keydown', event => { if (event.key === 'Escape') stop(); });

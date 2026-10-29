@@ -17,12 +17,12 @@
   <link rel="stylesheet" href="languages.css?v=1">
   <link rel="stylesheet" href="analytics.css?v=1">
   
-  <link rel="stylesheet" href="entrance.css?v=6">
+  <link rel="stylesheet" href="entrance.css?v=7">
   
   
   
   <script src="site-config.js?v=3" defer></script>
-  <script src="entrance-rotation.js?v=8" defer></script>
+  <script src="entrance-rotation.js?v=9" defer></script><script src="showreel.js?v=1" defer></script>
   <script src="app.js?v=5" defer></script>
   <script src="analytics.js?v=1" defer></script>
   <link rel="canonical" href="https://moframe.github.io/">
@@ -43,26 +43,23 @@
 </header><main class="entrance-main" id="main">
 <div class="entrance-backdrop" aria-hidden="true"><img data-scene-backdrop src="assets/roadrunner.png" alt=""></div>
 <section class="welcome" aria-labelledby="welcome-title">
- <div class="art-column">
-  <div class="art-heading"><span>MOFRAME’S LITTLE WORLD</span><a class="mobile-map-jump" href="#picture-map">項目から選ぶ ↓</a><span aria-hidden="true">✳</span></div>
-  <figure class="scene-postcard">
-   <div class="scene-window" data-scene-stage>
-    <img class="scene-halo" data-scene-halo src="assets/roadrunner.png" alt="" aria-hidden="true">
-    <img class="scene-image is-visible" data-scene-image src="assets/roadrunner.png" width="1086" height="1448" alt="ロードランナーを追うミケちゃん、ボーダー君と、空を飛ぶタイハク" fetchpriority="high">
-    <img class="scene-image" data-scene-image alt="" aria-hidden="true">
+ <div class="art-column showreel-column">
+  <figure class="showreel" aria-label="moframeの作品集動画">
+   <div class="showreel-screen">
+    <video id="showreel-video" muted playsinline preload="none" poster="assets/moframe-showreel-poster.jpg" data-src="assets/moframe-showreel.mp4" aria-label="moframeの作品集・約35秒"></video>
    </div>
-   <figcaption><span class="scene-caption" data-scene-caption>さあ、次はどんな物語？</span><span aria-hidden="true">✧</span></figcaption>
+   <figcaption class="showreel-caption"><div><span class="eyebrow">MOFRAME SHOWREEL</span><p>表情も、世界観も。映像で広がる、伝え方。</p></div><span class="showreel-duration">0:35</span></figcaption>
+   <div class="showreel-controls">
+    <button type="button" data-reel-play aria-controls="showreel-video">再生する</button>
+    <button type="button" data-reel-sound aria-controls="showreel-video" aria-pressed="false">音声オン</button>
+    <span data-reel-status aria-live="polite">音声オフで再生します</span>
+   </div>
+   <noscript><p><a href="assets/moframe-showreel.mp4">作品集動画を開く</a></p></noscript>
   </figure>
-  <div class="scene-selector" role="group" aria-label="入口の画像を切り替える">
-   <span>CHANGE THE SCENE</span>
-   <button type="button" aria-label="冒険の画像に切り替える" aria-pressed="true" data-scene-src="assets/roadrunner.png" data-scene-caption="さあ、次はどんな物語？" data-scene-alt="ロードランナーを追うミケちゃん、ボーダー君と、空を飛ぶタイハク"><img src="assets/roadrunner.png" alt=""></button>
-   <button type="button" aria-label="ダンスの画像に切り替える" aria-pressed="false" data-scene-src="assets/digidigi-dance.png" data-scene-caption="思わず笑っちゃう、ふたりの時間。" data-scene-alt="スーツ姿で、ボーダー君の頬に触れるミケちゃん"><img src="assets/digidigi-dance.png" alt=""></button>
-   <button type="button" aria-label="夕焼けの画像に切り替える" aria-pressed="false" data-scene-src="assets/hootie-frutti.png" data-scene-caption="色も、衣装も。今日は、華やかに。" data-scene-alt="夕焼けの街で華やかな衣装を着たミケちゃんとボーダー君"><img src="assets/hootie-frutti.png" alt=""></button>
-  </div>
  </div>
  <div class="welcome-panel">
   <header class="welcome-heading"><p class="eyebrow">AI VIDEO &amp; VISUAL CREATOR</p><h1 id="welcome-title">moframe<span>.</span><small>モフレーム</small></h1><p class="welcome-lead">伝えたい魅力を、<span>映像とデザインに。</span></p><p class="welcome-description">表情豊かなキャラクター、迫力あるアニメ、商品やサービスを伝える広告。<br>目的に合わせた表現で、企業やお店の発信をお手伝いします。</p></header>
-  <div class="map-label"><h2>EXPLORE <span>moframeを知る・作品を見る</span></h2><span class="hover-hint">画像にふれると、ひとコマ変わる ↙</span></div>
+  <div class="map-label"><h2>EXPLORE <span>moframeを知る・作品を見る</span></h2></div>
   <nav class="picture-map" id="picture-map" aria-label="サイトマップ"><a class="picture-link picture-about" href="about.html" data-scene-src="assets/cream-puff-moment.png" data-scene-caption="「してやったり」が、物語のはじまり。" data-scene-alt="冷蔵庫のシュークリームを見つめるミケちゃんとボーダー君">
   <span class="picture-thumb" aria-hidden="true"><img class="picture-primary" src="assets/cream-puff-moment.png" alt="" decoding="async"><img class="picture-alternate" src="assets/cream-puff-baking.png" alt="" decoding="async"></span>
   <div class="picture-copy"><span class="picture-kicker">01 / ABOUT</span><h2>moframeについて</h2><span class="picture-description">得意な表現と、制作のこと</span></div><span class="picture-arrow" aria-hidden="true">↗</span></a><a class="picture-link picture-contact" href="contact.html" data-scene-src="assets/digidigi-dance.png" data-scene-caption="次は、あなたのアイデアを一緒に。" data-scene-alt="スーツ姿で、ボーダー君の頬に触れるミケちゃん">
