@@ -2,7 +2,7 @@
   'use strict';
   const english = document.documentElement.lang === 'en';
   // Keep bookmarks from the first single-page prototype useful after the split.
-  const legacyPages = {'sitemap':'sitemap','works':'works','mv-work':'mv','comic-work':'comic','about':'about','characters':'characters','achievements':'client-work','client-work':'client-work','award':'award','shop':'shop','services':'services','contact':'contact'};
+  const legacyPages = {'sitemap':'sitemap','works':'works','mv-work':'mv','comic-work':'comic','about':'about','characters':'portfolio','achievements':'client-work','client-work':'client-work','award':'award','shop':'shop','services':'services','contact':'contact'};
   if (document.body.classList.contains('page-index') && Object.hasOwn(legacyPages, location.hash.slice(1))) {
     location.replace(legacyPages[location.hash.slice(1)] + (english ? '-en.html' : '.html'));
     return;
