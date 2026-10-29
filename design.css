@@ -71,3 +71,6 @@
 .project-videos{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.project-videos h3{font-size:19px}.project-videos .work-meta{font-size:11px}
 .video-dialog.video-portrait{width:min(460px,calc(100% - 24px))}.video-portrait #video-container{aspect-ratio:9/16;max-height:70vh;width:auto;margin:auto}
 @media(max-width:800px){.project-videos{grid-template-columns:1fr}.client-project{padding:20px}.project-intro h2{font-size:26px}}
+
+/* Production dates are secondary to the work description. */
+.section-note:has(> time[datetime]){font-size:13px;line-height:1.6}

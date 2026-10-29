@@ -3,7 +3,7 @@
   const stage = document.querySelector('[data-scene-stage]');
   if (!stage) return;
   const english = document.documentElement.lang === 'en';
-  // Only decorative navigation artwork rotates. Project-specific cards stay fixed.
+  // Category artwork rotates; individual project thumbnails stay fixed.
   const pool = [
     ['assets/wingsuit-cabin.png', '赤い照明の機内で、飛び立つ準備をするミケちゃん、ボーダー君、タイハク', 'Mike, Border and Taihaku getting ready to jump in a red-lit aircraft cabin'],
     ['assets/wingsuit-autumn.png', 'ウイングスーツで奥日光の紅葉を楽しむミケちゃん、ボーダー君、タイハク', 'Mike, Border and Taihaku enjoying the autumn colors of Oku-Nikko on a wingsuit flight'],
@@ -53,6 +53,33 @@
     element.dataset.sceneAlt = describe(item);
     element.dataset.sceneCaption = describe(item);
   };
+  const animationCard = document.querySelector('.picture-animation');
+  if (animationCard) {
+    const animationPool = [
+      ['assets/portfolio-cyber-selected.png', 'サイバー魔導士 — 彼女が企むこと。', 'Cyber Mage — What Is She Planning?'],
+      ['assets/portfolio-samurai.png', '侍の戦い — 一対一の剣戟', 'Samurai Duel — One-on-One Sword Action'],
+      ['assets/portfolio-sword-dance-painted.png', '刀で描く、私の世界。', 'Painting My World with a Blade'],
+      ['assets/portfolio-psychokinesis.png', 'サイコキネシス・アクション', 'Psychokinesis Action'],
+      ['assets/portfolio-parkour-hero.png', 'プレビズからつくる、迫力のパルクール。', 'Parkour Built from Previs'],
+      ['assets/portfolio-goldfish.webp', '金魚 — 一枚の絵から、動き出す。', 'Goldfish — A Single Image Comes to Life'],
+      ['assets/portfolio-moon-rabbit.png', '月夜に描く、和の幻想。', 'A Moonlit Japanese Fantasy']
+    ];
+    const animationKey = 'moframe-animation-art-v1';
+    let lastPair = [];
+    try { lastPair = JSON.parse(sessionStorage.getItem(animationKey)) || []; } catch { /* Optional storage. */ }
+    const validPair = Array.isArray(lastPair) && lastPair.length === 2 &&
+      lastPair.every(src => animationPool.some(item => item[0] === src));
+    const candidates = animationPool.filter(item => !validPair || !lastPair.includes(item[0]));
+    for (let i = candidates.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+    }
+    const [primary, alternate] = candidates;
+    animationCard.querySelector('.picture-primary').src = primary[0];
+    animationCard.querySelector('.picture-alternate').src = alternate[0];
+    assignScene(animationCard, primary);
+    try { sessionStorage.setItem(animationKey, JSON.stringify([primary[0], alternate[0]])); } catch { /* Still distinct without storage. */ }
+  }
   cards.forEach((card, i) => {
     const primary = order[i * 2];
     const alternate = order[i * 2 + 1];
