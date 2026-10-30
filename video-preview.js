@@ -10,7 +10,7 @@
   const videos = new Map();
   const seen = new Set();
   const visible = new Set();
-  const mobileCard = card => !card.classList.contains('collection-preview');
+  const mobileCard = card => Boolean(card.dataset.mobilePreview);
   const enabled = () => !reducedMotion.matches && !connection?.saveData;
   const frame = card => card.querySelector('.preview-frame') || card;
   const owners = new Map(cards.map(card => [frame(card), card]));
@@ -94,7 +94,7 @@
       card.classList.toggle('preview-ready', enabled() && (mobile ? mobileCard(card) : pointer.matches));
     });
   };
-  // Load only nearby, one-second work clips before they enter the screen.
+  // Load only nearby, one-second clips before they enter the screen.
   const preloadObserver = new IntersectionObserver(entries => {
     if (!touch.matches || !enabled() || document.hidden) return;
     for (const entry of entries) {
@@ -103,7 +103,7 @@
     }
   }, {rootMargin:'240px 0px', threshold:0});
   // Observe the image frame, excluding captions. Half visible anywhere in the
-  // viewport is enough; category montage cards remain still on touch.
+  // viewport is enough for individual works and category montages.
   const mobileObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
       const card = owners.get(entry.target);

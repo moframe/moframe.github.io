@@ -4,7 +4,7 @@
 .collection-copy{display:flex;flex-direction:column;flex:1;padding:24px}
 .collection-copy .eyebrow{font-size:10px}.collection-copy h2{font-size:23px;line-height:1.5;margin:6px 0 12px}
 .collection-copy>p:not(.eyebrow){font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:24px}
-.collection-copy nav{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.collection-copy nav{display:flex;flex-direction:column;gap:8px;margin-top:0}
 .collection-copy nav a{display:flex;align-items:center;gap:12px;min-height:84px;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:14px;font-weight:700;transition:background .2s,border-color .2s}
 .collection-link-thumb{display:block;width:84px;height:64px;flex:0 0 84px;object-fit:contain;background:var(--mint);border-radius:6px}
 .collection-link-label{flex:1;min-width:0;line-height:1.6;overflow-wrap:anywhere}
