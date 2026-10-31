@@ -16,7 +16,7 @@
   const owners = new Map(cards.map(card => [frame(card), card]));
   const prepare = (card, mobile) => {
     const source = mobile ? card.dataset.mobilePreview : card.dataset.preview;
-    if (!source || !/^assets\/preview-[a-z0-9-]+\.mp4(?:\?v=2)?$/.test(source)) return null;
+    if (!source || !/^assets\/preview-[a-z0-9-]+\.mp4(?:\?v=\d+)?$/.test(source)) return null;
     let video = videos.get(card);
     if (!video) {
       video = document.createElement('video');
