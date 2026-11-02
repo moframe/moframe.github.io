@@ -4,6 +4,7 @@
   const english = document.documentElement.lang === 'en';
   // Category artwork rotates; individual project thumbnails stay fixed.
   const pool = [
+    ['assets/mike-autumn-archer.png', '紅葉の中で弓を構えるミケちゃん', 'Mike drawing a bow among autumn leaves'],
     ['assets/water-fight.png', '水鉄砲を持つミケちゃんとボーダー君', 'Mike and Border with a water blaster'],
     ['assets/digidigi-dance.png', 'スーツ姿で踊るミケちゃんとボーダー君', 'Mike and Border dancing in suits'],
     ['assets/wingsuit-cabin.png', '赤い照明の機内で、飛び立つ準備をするミケちゃん、ボーダー君、タイハク', 'Mike, Border and Taihaku getting ready to jump in a red-lit aircraft cabin'],
