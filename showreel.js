@@ -5,13 +5,24 @@
   const play = document.querySelector('[data-reel-play]');
   const sound = document.querySelector('[data-reel-sound]');
   const status = document.querySelector('[data-reel-status]');
+  const remaining = document.querySelector('.showreel-duration');
   const english = document.documentElement.lang === 'en';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const connection = navigator.connection;
   let attempted = false, revision = 0;
   video.muted = true;
   video.defaultMuted = true;
+  const syncRemaining = () => {
+    if (!remaining || !Number.isFinite(video.duration)) return;
+    const seconds = Math.max(0, Math.ceil(video.duration - video.currentTime));
+    const display = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+    remaining.textContent = display;
+    remaining.setAttribute('aria-label', english ? `Time remaining ${display}` : `残り時間 ${display}`);
+    remaining.title = english ? 'Time remaining' : '残り時間';
+  };
+  ['loadedmetadata', 'durationchange', 'timeupdate', 'seeked', 'pause'].forEach(event => video.addEventListener(event, syncRemaining));
   const sync = () => {
+    syncRemaining();
     play.textContent = video.paused ? (english ? 'Play' : '再生する') : (english ? 'Pause' : '一時停止');
     sound.textContent = video.muted ? (english ? 'Sound on' : '音声オン') : (english ? 'Sound off' : '音声オフ');
     sound.setAttribute('aria-pressed', String(!video.muted));
