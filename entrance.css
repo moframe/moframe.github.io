@@ -86,5 +86,25 @@
 .showreel-controls button:hover{background:#e8f2ed}.showreel-controls button:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 .showreel-controls [data-reel-status]{font-size:11px;color:#526960;margin-left:auto}
 .page-entrance .site-footer{grid-column:1/-1}
+.showreel-explore{display:none}
 @media(min-width:741px) and (max-width:1100px){.welcome{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.showreel-column{max-width:none}}
 @media(max-width:740px){.welcome{gap:18px}.welcome-panel{display:contents}.welcome-heading{order:0;padding:8px 5px 0}.showreel-column{order:1;position:static;max-width:none;width:100%}.map-label{order:2;margin:8px 0 -5px}.picture-map{order:3;width:100%}.welcome-proof{order:4;width:100%;margin-top:0}.page-entrance .site-footer{order:5}.showreel-caption{padding:14px 14px 5px}.showreel-caption p{font-size:13px}.showreel-controls{padding:8px 14px 14px}.showreel-controls button{padding:9px 13px}.welcome-heading .welcome-description{font-size:13px}.welcome-heading h1{font-size:37px}}
+/* Desktop: let the film lead, sized to both viewport dimensions without cropping. */
+@media(min-width:741px){
+ .entrance-main{width:100%;padding:0 0 35px}
+ .welcome{grid-template-columns:minmax(0,1fr);gap:32px}
+ .showreel-column{grid-column:1;grid-row:auto;position:static;max-width:none;width:100%}
+ .showreel{display:grid;grid-template-columns:minmax(0,1fr) auto;border:0;border-radius:0;box-shadow:none}
+ .showreel-screen{grid-column:1/-1;aspect-ratio:auto;height:min(56.25vw,calc(100svh - 232px));background:#0e1516}
+ .showreel-caption{padding:14px clamp(24px,3vw,56px);gap:24px;min-width:0}
+ .showreel-caption p{margin-top:4px}
+ .showreel-duration{font-variant-numeric:tabular-nums;white-space:nowrap}
+ .showreel-controls{padding:14px clamp(24px,3vw,56px) 14px 0;gap:10px}
+ .showreel-explore{display:flex;align-items:center;justify-content:center;gap:16px;min-height:48px;font-size:12px;font-weight:700;background:#fffcf5d9;border-top:1px solid var(--line)}
+ .showreel-explore:hover{color:var(--orange)}
+ .showreel-explore:focus-visible{outline:2px solid var(--orange);outline-offset:-4px}
+ .welcome-panel{grid-column:1;grid-row:auto;width:min(1180px,calc(100% - 64px));margin:0 auto;padding:32px}
+ .picture-map{grid-template-columns:1fr 1fr}
+ .welcome-proof{flex-direction:row;gap:10px 24px}
+ .page-entrance .site-footer{width:min(1180px,calc(100% - 64px));margin:0 auto}
+}
