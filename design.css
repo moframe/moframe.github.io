@@ -76,3 +76,16 @@
 
 /* Production dates are secondary to the work description. */
 .section-note:has(> time[datetime]){font-size:13px;line-height:1.6}
+
+/* Header wordmark: each letter keeps a brief color trail after pointer exit. */
+.brand-word{white-space:nowrap}
+.brand-letter{transition:color 1s ease-out}
+.brand-letter:nth-child(4n+1){--letter-color:#e9683f}
+.brand-letter:nth-child(4n+2){--letter-color:#d95778}
+.brand-letter:nth-child(4n+3){--letter-color:#218c88}
+.brand-letter:nth-child(4n+4){--letter-color:#8a63c7}
+@media(hover:hover) and (pointer:fine){
+ .brand-letter:hover{color:var(--letter-color);transition-duration:0s}
+}
+.brand:focus-visible .brand-letter{color:var(--letter-color);transition-duration:0s}
+@media(prefers-reduced-motion:reduce){.brand-letter{transition:none}}
