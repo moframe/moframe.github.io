@@ -4,6 +4,7 @@
   const english = document.documentElement.lang === 'en';
   // Category artwork rotates; individual project thumbnails stay fixed.
   const pool = [
+    ['assets/short-godzilla-play.png', '怪獣の着ぐるみを着て、瓦礫の街に立つミケちゃん', 'Mike in a monster costume, standing in a ruined city'],
     ['assets/mike-autumn-archer.png', '紅葉の中で弓を構えるミケちゃん', 'Mike drawing a bow among autumn leaves'],
     ['assets/water-fight.png', '水鉄砲を持つミケちゃんとボーダー君', 'Mike and Border with a water blaster'],
     ['assets/digidigi-dance.png', 'スーツ姿で踊るミケちゃんとボーダー君', 'Mike and Border dancing in suits'],
